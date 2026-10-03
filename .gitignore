@@ -1,0 +1,80 @@
+# ============================================================
+# Auto Rise — .gitignore
+# ============================================================
+
+# ---------- Environment (contains secrets — never commit) ----------
+.env
+.env.*
+!.env.example
+env.production
+!env.production.example
+
+# ---------- Composer ----------
+/vendor/
+composer.phar
+
+# ---------- Node ----------
+/node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ---------- Database (local data) ----------
+database/*.sqlite
+database/*.sqlite-journal
+database/*.sqlite-wal
+database/*.sqlite-shm
+database/backup_*.sql
+database/final_dump.sql
+database/*.sql
+!database/schema/*.sql
+!database/migrations/*.sql
+!database/seeds/*.sql
+
+# ---------- Storage (runtime data) ----------
+storage/logs/*
+!storage/logs/.gitkeep
+storage/cache/*
+!storage/cache/.gitkeep
+storage/backups/*
+!storage/backups/.gitkeep
+storage/sessions/*
+!storage/sessions/.gitkeep
+
+# ---------- Uploads (user content) ----------
+public/assets/uploads/avatars/*
+!public/assets/uploads/avatars/.gitkeep
+public/assets/uploads/product_images/*
+!public/assets/uploads/product_images/.gitkeep
+
+# ---------- Legacy (old code, kept out) ----------
+/legacy/
+
+# ---------- Tests / CI ----------
+.phpunit.cache/
+.phpunit.result.cache
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Logs ----------
+*.log
+logs/
+
+# ---------- Build artifacts ----------
+/build/
+/dist/
+
+# ---------- Docker (only if you don't want to publish it) ----------
+# Dockerfile
+# docker/
+# .dockerignore
+# railway.toml

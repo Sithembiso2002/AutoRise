@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Serve existing files directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else goes through the front controller
+RewriteRule ^ index.php [QSA,L]
+
+# Block sensitive extensions defensively (belt + suspenders)
+<FilesMatch "\.(sqlite|sqlite3|db|sql|env|log|ini|md|pptx)$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes
+DirectoryIndex index.php
